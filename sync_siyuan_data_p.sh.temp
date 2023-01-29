@@ -1,0 +1,5 @@
+#! /bin/bash
+token=xxxxxxxxxxxxxxxxxx
+port=xxxx
+url=http://localhost:$port/api/sync/performSync"
+curl -H "Authorization: Token $token" -X POST -d {} $url

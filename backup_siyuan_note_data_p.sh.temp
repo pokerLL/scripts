@@ -2,8 +2,8 @@
 echo "================START==================="
 from=siyuan_note
 to=siyuan_show
-token=jbwahhblvd51uzci
-port=8803
+token=xxxxxxxxxxxxxxxx
+port=xxxx
 docker stop $from
 docker stop $to
 pp=/home/docker/
