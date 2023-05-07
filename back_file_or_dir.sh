@@ -29,7 +29,7 @@ else
 fi
 
 if [ -d $2 ]; then # 如果是目录，则进行目录备份
-  tar -czvf $backup_file $2
+  tar -czf $backup_file $2
 else # 如果是文件，则进行文件备份
   cp $2 $backup_file
 fi
