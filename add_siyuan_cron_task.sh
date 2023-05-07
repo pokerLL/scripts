@@ -8,7 +8,7 @@ params=("$@")
 for param in "${params[@]}"
 do
     # Cron job
-    cron_job="3,15 * * * * root $command $param"
+    cron_job="30 4 * * * root $command $param"
 
     # Check if the cron job already exists
     if sudo grep -Fxq "$cron_job" /etc/crontab; then
