@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Command and parameters
-command="sudo bash `pwd`/backup_siyuan_container_data.sh"
+command="sudo bash $(readlink -f $(dirname "$0"))/backup_siyuan_container_data.sh"
 params=("$@")
 
 # Add a cron job for each parameter

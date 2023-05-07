@@ -22,6 +22,6 @@ fi
 
 docker stop $container_name
 
-sudo bash `pwd`/back_file_or_dir.sh $container_name $source_folder_path
+sudo bash "$(readlink -f $(dirname "$0"))/back_file_or_dir.sh" "$container_name" "$source_folder_path"
 
 docker start $container_name
