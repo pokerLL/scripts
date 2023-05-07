@@ -1,9 +1,0 @@
-#!/bin/bash
-sh `pwd`/sync_siyuan_data_p.sh
-time=`date +%Y%m%d`
-[ ! -e /home/lei/backup/siyuan/  ] && mkdir -p /home/lei/backup/siyuan/
-
-cname=siyuan_note
-docker stop $cname
-tar  zcf /home/lei/backup/siyuan/$time.tar.gz  /home/docker/$cname/data/*
-docker start $cname
