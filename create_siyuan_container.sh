@@ -18,7 +18,7 @@ sudo chown -R 1000:1000 $dir
 # 2.4.5版本之前
 # docker run -d --name siyuan -v siyuan:/siyuan -p 6806:6806 b3log/siyuan:v2.4.5 -resident -workspace /siyuan -accessAuthCode 9699
 # 2.4.12版本之前
-docker run -d --name $cname -v $dir:$dir -p $port:6806  -u 1000:1000 b3log/siyuan -workspace $dir
+docker run -d --restart=always --name $cname -v $dir:$dir -p $port:6806  -u 1000:1000 b3log/siyuan -workspace $dir
 
 unset dir
 unset cname
