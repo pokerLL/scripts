@@ -20,8 +20,8 @@ if [ ! -d "$source_folder_path" ]; then # 检查源文件夹是否存在
   exit 1
 fi
 
-docker stop $container_name
+sudo docker stop $container_name
 
-sudo bash "$(readlink -f $(dirname "$0"))/back_file_or_dir.sh" "$container_name" "$source_folder_path"
+sudo -i bash "$(readlink -f $(dirname "$0"))/back_file_or_dir.sh" "$container_name" "$source_folder_path"
 
-docker start $container_name
+sudo docker start $container_name
