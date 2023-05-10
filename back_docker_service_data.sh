@@ -11,6 +11,11 @@ for dir in */; do
     continue
   fi
 
+  if [ -f "$dir/.skip" ]; then
+    echo ".skip file found in directory $dir, skipping..."
+    continue
+  fi
+
   cd "$dir"
 
   docker-compose down
