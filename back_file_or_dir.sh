@@ -1,12 +1,13 @@
 #!/bin/bash
 BASE_DIR="$(readlink -f $(dirname "$0"))"
+SCRIPT_NAME="$(basename "$0")"
 BACK_DIR=/home/back
 LOG_DIR=/var/log/back
 
 now() {
     date +"%Y-%m-%d %H:%M:%S"
 }
-echo "[INFO] CALL $BASE_DIR/$0 $* at $(now)"
+echo "[INFO] CALL $BASE_DIR/$SCRIPT_NAME $* at $(now)"
 
 start_time=$(now)
 echo "[$(now)] Starting backup at $start_time"
