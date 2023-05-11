@@ -59,6 +59,7 @@ backup_size=$(sudo du -sh $backup_file | awk '{print $1}')
 current_user=$(whoami)
 
 # 将备份信息写入日志文件
+mkdir -p "$LOG_DIR"
 log_file="$LOG_DIR/backup_$(basename $backup_dir).log"
 log_str="[INFO] Backup completed successfully. Backup file is located at $backup_file. Backup file size: $backup_size. Elapsed time: ${elapsed_time}s. Executed by user: $current_user."
 echo "$log_str"
