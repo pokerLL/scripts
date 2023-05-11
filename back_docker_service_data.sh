@@ -8,9 +8,6 @@ now() {
 }
 echo "[INFO] CALL $BASE_DIR/$SCRIPT_NAME $* at $(now)"
 
-exit 0
-
-
 echo "=========================================================="
 echo "[$(now)] Start to backup docker service data..."
 
