@@ -1,5 +1,8 @@
 #!/bin/bash
 
+BASE_DIR="$(readlink -f $(dirname "$0"))"
+DOCKER_HOME=/home/docker
+
 if [ $# -lt 1 ]; then # 检查参数数量是否少于1个
   echo "Usage: $0 container_name [container_path]"
   exit 1
@@ -8,7 +11,7 @@ fi
 container_name=$1
 
 if [ -z "$2" ]; then 
-  container_path="/home/docker/$container_name"
+  container_path="$DOCKER_HOME/$container_name"
 else
   container_path=$2
 fi
@@ -20,8 +23,8 @@ if [ ! -d "$source_folder_path" ]; then # 检查源文件夹是否存在
   exit 1
 fi
 
-sudo docker stop $container_name
+docker stop $container_name
 
-sudo -i bash "$(readlink -f $(dirname "$0"))/back_file_or_dir.sh" "$container_name" "$source_folder_path"
+/bin/bash "$BASE_DIR/back_file_or_dir.sh" "$container_name" "$source_folder_path"
 
-sudo docker start $container_name
+docker start $container_name

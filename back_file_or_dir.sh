@@ -1,9 +1,7 @@
 #!/bin/bash
-if [ -z "$CONFIG_FILE_PATH" ] || [ ! -f "$CONFIG_FILE_PATH" ]; then
-  echo "ERROR: CONFIG_FILE_PATH is not set or does not exist."
-  exit 1
-fi
-source "$CONFIG_FILE_PATH"
+BASED_DIR="$(readlink -f $(dirname "$0"))"
+BACK_DIR=/home/back
+LOG_DIR=/var/log/back
 
 start_time=$(date +"%Y-%m-%d %H:%M:%S")
 echo "Starting backup at $start_time"
@@ -58,4 +56,5 @@ current_user=$(whoami)
 log_file="$LOG_DIR/backup_$(basename $backup_dir).log"
 log_str="[$end_time] Backup completed successfully. Backup file is located at $backup_file. Backup file size: $backup_size. Elapsed time: ${elapsed_time}s. Executed by user: $current_user."
 echo "$log_str"
+echo "[INFO] Log file is ar $log_file"
 sudo echo "$log_str" >> $log_file

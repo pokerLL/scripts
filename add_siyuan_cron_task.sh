@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Command and parameters
-command="sudo bash $(readlink -f $(dirname "$0"))/backup_siyuan_container_data.sh"
+command="/bin/bash $(readlink -f $(dirname "$0"))/backup_siyuan_container_data.sh"
 params=("$@")
 
 # Add a cron job for each parameter
@@ -11,7 +11,7 @@ do
     cron_job="30 4 * * * root $command $param"
 
     # Check if the cron job already exists
-    if sudo grep -Fxq "$cron_job" /etc/crontab; then
+    if grep -Fxq "$cron_job" /etc/crontab; then
         echo "Cron job already exists: $cron_job"
     else
         echo "Adding cron job: $cron_job"
@@ -20,4 +20,4 @@ do
 done
 
 # Update crontab
-sudo crontab /etc/crontab
+crontab /etc/crontab
