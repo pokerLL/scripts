@@ -3,8 +3,12 @@ BASED_DIR="$(readlink -f $(dirname "$0"))"
 BACK_DIR=/home/back
 LOG_DIR=/var/log/back
 
-start_time=$(date +"%Y-%m-%d %H:%M:%S")
-echo "Starting backup at $start_time"
+now() {
+    date +"%Y-%m-%d %H:%M:%S"
+}
+
+start_time=$(now)
+echo "[$(now)] Starting backup at $start_time"
 
 if [ $# -lt 2 ]; then 
   echo "Usage: $0 back_folder_path source_path [backup_file_name]"
@@ -43,8 +47,8 @@ else
 fi
 
 
-end_time=$(date +"%Y-%m-%d %H:%M:%S")
-echo "Backup completed at $end_time"
+end_time=$(now)
+echo "[$(now)] Backup completed at $end_time"
 
 start_timestamp=$(date -d "$start_time" +%s)
 end_timestamp=$(date -d "$end_time" +%s)
@@ -54,7 +58,7 @@ current_user=$(whoami)
 
 # 将备份信息写入日志文件
 log_file="$LOG_DIR/backup_$(basename $backup_dir).log"
-log_str="[$end_time] Backup completed successfully. Backup file is located at $backup_file. Backup file size: $backup_size. Elapsed time: ${elapsed_time}s. Executed by user: $current_user."
+log_str="[$end_time)] Backup completed successfully. Backup file is located at $backup_file. Backup file size: $backup_size. Elapsed time: ${elapsed_time}s. Executed by user: $current_user."
 echo "$log_str"
 echo "[INFO] Log file is ar $log_file"
 sudo echo "$log_str" >> $log_file
