@@ -1,11 +1,12 @@
 #!/bin/bash
-BASED_DIR="$(readlink -f $(dirname "$0"))"
+BASE_DIR="$(readlink -f $(dirname "$0"))"
 BACK_DIR=/home/back
 LOG_DIR=/var/log/back
 
 now() {
     date +"%Y-%m-%d %H:%M:%S"
 }
+echo "[INFO] CALL $BASED_R/$0 $* at $(now)"
 
 start_time=$(now)
 echo "[$(now)] Starting backup at $start_time"
@@ -25,7 +26,7 @@ fi
 if [ "$(echo "$1" | cut -c1 | grep '/')" ]; then
     backup_dir=$1
 else
-    backup_dir=$BACKUP_DIR/$1
+    backup_dir=$BACK_DIR/$1
 fi
 mkdir -p $backup_dir
 

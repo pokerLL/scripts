@@ -1,5 +1,13 @@
 #!/bin/bash
 
+BASE_DIR="$(readlink -f $(dirname "$0"))"
+DOCKER_HOME=/home/docker
+
+now() {
+    date +"%Y-%m-%d %H:%M:%S"
+}
+echo "[INFO] CALL $BASED_R/$0 $* at $(now)"
+
 echo "================START==================="
 
 if [ $# != 2 ]; then
@@ -9,7 +17,7 @@ if [ $# != 2 ]; then
 fi
 
 container_name=$1
-mount_dir=/home/docker/${container_name}
+mount_dir=$DOCKER_HOME/${container_name}
 host_port=$2
 
 echo "容器名: ${container_name} --> 挂载目录: ${mount_dir} --> 映射端口: ${host_port}"
