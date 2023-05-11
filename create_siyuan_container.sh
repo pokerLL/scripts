@@ -6,7 +6,7 @@ DOCKER_HOME=/home/docker
 now() {
     date +"%Y-%m-%d %H:%M:%S"
 }
-echo "[INFO] CALL $BASED_R/$0 $* at $(now)"
+echo "[INFO] CALL $BASE_DIR/$0 $* at $(now)"
 
 echo "================START==================="
 
