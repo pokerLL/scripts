@@ -15,12 +15,12 @@ cd $DOCKER_HOME
 for dir in */; do
   # 判断是否存在docker-compose.yml文件
   if [ ! -f "$dir/docker-compose.yml" ]; then
-    echo "[[$(now)]] No docker-compose.yml file found in directory $dir, skipping..."
+    echo "[$(now)] No docker-compose.yml file found in directory $dir, skipping..."
     continue
   fi
 
   if [ -f "$dir/.skip" ]; then
-    echo "[[$(now)]] .skip file found in directory $dir, skipping..."
+    echo "[$(now)] .skip file found in directory $dir, skipping..."
     continue
   fi
 
@@ -33,5 +33,5 @@ done
 bash "$BASE_DIR"/back_file_or_dir.sh /mnt/DATA/docker $DOCKER_HOME
 bash "$BASE_DIR"/start_docker_service.sh
 
-echo "[[$(now)]] Complete to backup docker service data."
+echo "[$(now)] Complete to backup docker service data."
 echo "=========================================================="
