@@ -30,7 +30,7 @@ for dir in */; do
   cd ..
 done
 
-bash "$BASE_DIR"/back_file_or_dir.sh /mnt/DATA/docker $DOCKER_HOME
+bash "$BASE_DIR"/back_file_or_dir.sh /mnt/BACKUP/docker $DOCKER_HOME
 bash "$BASE_DIR"/auto_start_all_docker_service.sh
 
 echo "[$(now)] Complete to backup docker service data."
