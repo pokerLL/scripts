@@ -1,7 +1,9 @@
 #!/bin/bash
 
+source /.scripts_config.sh
+
 # Command and parameters
-command="/bin/bash $(readlink -f $(dirname "$0"))/backup_siyuan_container_data.sh"
+command="/bin/bash $BASE_DIR/backup_siyuan_container_data.sh"
 params=("$@")
 
 for param in "${params[@]}"

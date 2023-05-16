@@ -1,6 +1,14 @@
-DOCKER_HOME=/home/docker
-BACKUP_HOME=/mnt/BACKUP
-SCRIPTS_HOME=/home/lei/scripts-collection
-LOG_HOME=/var/log/back
+LOG_DIR=/var/log/back
+BASE_DIR=/home/lei/scripts-collection
+DOCKER_DIR=/home/docker
+BACKUP_DIR=/mnt/BACKUP
 
-mkdir -p $DOCKER_HOME $BACKUP_HOME $LOG_HOME
+mkdir -p $DOCKER_DIR $BACKUP_DIR $LOG_DIR
+
+if [ ! -d $BASE_DIR ]; then
+     echo "Error: $BASE_DIR is not a valid directory"
+fi
+
+now() {
+    date +"%Y-%m-%d %H:%M:%S"
+}

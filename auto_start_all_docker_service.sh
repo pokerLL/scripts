@@ -1,13 +1,11 @@
 #!/bin/bash
-BASE_DIR="$(readlink -f $(dirname "$0"))"
-SCRIPT_NAME="$(basename "$0")"
-DOCKER_HOME=/home/docker
 
-now() {
-    date +"%Y-%m-%d %H:%M:%S"
-}
+source /.scripts_config.sh
+
+SCRIPT_NAME="$(basename "$0")"
+
 echo "[INFO] CALL $BASE_DIR/$SCRIPT_NAME $* at $(now)"
-cd $DOCKER_HOME
+cd $DOCKER_DIR
 
 for dir in */; do
   # 判断是否存在docker-compose.yml文件

@@ -1,12 +1,9 @@
 #!/bin/bash
-BASE_DIR="$(readlink -f $(dirname "$0"))"
-SCRIPT_NAME="$(basename "$0")"
-BACK_DIR=/home/back
-LOG_DIR=/var/log/back
 
-now() {
-    date +"%Y-%m-%d %H:%M:%S"
-}
+sourcr /.scripts_config.sh
+
+SCRIPT_NAME="$(basename "$0")"
+
 echo "[INFO] CALL $BASE_DIR/$SCRIPT_NAME $* at $(now)"
 
 start_time=$(now)
@@ -27,7 +24,7 @@ fi
 if [ "$(echo "$1" | cut -c1 | grep '/')" ]; then
     backup_dir=$1
 else
-    backup_dir=$BACK_DIR/$1
+    backup_dir=$BACKUP_DIR/$1
 fi
 mkdir -p $backup_dir
 

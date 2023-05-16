@@ -1,11 +1,9 @@
 #!/bin/bash
-BASE_DIR="$(readlink -f $(dirname "$0"))"
-SCRIPT_NAME="$(basename "$0")"
-DOCKER_HOME=/home/docker
 
-now() {
-    date +"%Y-%m-%d %H:%M:%S"
-}
+source /.scripts_config.sh
+
+SCRIPT_NAME="$(basename "$0")"
+
 echo "[INFO] CALL $BASE_DIR/$SCRIPT_NAME $* at $(now)"
 
 if [ $# -lt 1 ]; then # 检查参数数量是否少于1个
@@ -16,7 +14,7 @@ fi
 container_name=$1
 
 if [ -z "$2" ]; then 
-  container_path="$DOCKER_HOME/$container_name"
+  container_path="$DOCKER_DIR/$container_name"
 else
   container_path=$2
 fi
