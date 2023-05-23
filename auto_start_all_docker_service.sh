@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /.scripts_config.sh
+source /.scripts_config
 
 SCRIPT_NAME="$(basename "$0")"
 

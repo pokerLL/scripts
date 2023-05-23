@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /.scripts_config.sh
+source /.scripts_config
 
 SCRIPT_NAME="$(basename "$0")"
 
@@ -28,7 +28,7 @@ for dir in */; do
   cd ..
 done
 
-bash "$BASE_DIR"/back_file_or_dir.sh /mnt/BACKUP/docker $DOCKER_DIR
+bash "$BASE_DIR"/back_file_or_dir.sh "$BACKUP_DIR"/docker "$DOCKER_DIR"
 bash "$BASE_DIR"/auto_start_all_docker_service.sh
 
 echo "[$(now)] Complete to backup docker service data."

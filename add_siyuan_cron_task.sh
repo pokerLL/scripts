@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /.scripts_config.sh
+source /.scripts_config
 
 # Command and parameters
 command="/bin/bash $BASE_DIR/backup_siyuan_container_data.sh"
