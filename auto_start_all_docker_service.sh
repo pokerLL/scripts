@@ -43,7 +43,7 @@ for dir in */; do
   #   fi
   # done
 
-  docker-compose up -d
+  docker-compose down && docker-compose up -d
 
   cd ..
 done
