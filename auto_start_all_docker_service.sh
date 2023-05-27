@@ -32,16 +32,18 @@ for dir in */; do
   
   cd "$dir"
 
-  # 获取docker-compose.yml文件中定义的所有服务名称
-  services=$(docker-compose config --services)
+  # # 获取docker-compose.yml文件中定义的所有服务名称
+  # services=$(docker-compose config --services)
 
-  for service in $services; do
-    if docker-compose ps | grep "$service" | grep -q "Up"; then
-      echo "Service $service is already running, skipping..."
-    else
-      docker-compose up -d "$service"
-    fi
-  done
+  # for service in $services; do
+  #   if docker-compose ps | grep "$service" | grep -q "Up"; then
+  #     echo "Service $service is already running, skipping..."
+  #   else
+  #     docker-compose up -d "$service"
+  #   fi
+  # done
+
+  docker-compose up -d
 
   cd ..
 done
