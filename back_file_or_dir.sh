@@ -24,7 +24,7 @@ fi
 if [ "$(echo "$1" | cut -c1 | grep '/')" ]; then
     backup_dir=$1
 else
-    backup_dir=$BACKUP_DIR/$1
+    backup_dir=$BACK_DIR/$1
 fi
 mkdir -p $backup_dir
 

@@ -1,9 +1,10 @@
-LOG_DIR=/var/log/back
+MOUNT_DIR=/mnt
 BASE_DIR=/home/lei/scripts-collection
 DOCKER_DIR=/home/docker
-BACKUP_DIR=/mnt/BACKUP
+BACK_DIR="$MOUNT_DIR"/BACK
+LOG_DIR="$BACK_DIR"
 
-mkdir -p $DOCKER_DIR $BACKUP_DIR $LOG_DIR
+mkdir -p $DOCKER_DIR $BACK_DIR $LOG_DIR
 
 if [ ! -d $BASE_DIR ]; then
      echo "Error: $BASE_DIR is not a valid directory"
