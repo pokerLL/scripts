@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+    siyuan:
+        restart: always
+        container_name: VAR_CNAME
+        volumes:
+            - './:/home/docker/VAR_CNAME'
+        ports:
+            - 'VAR_PORT:6806'
+        user: '1000:1000'
+        command: -workspace /home/docker/VAR_CNAME
+        image: b3log/siyuan
