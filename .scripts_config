@@ -1,7 +1,8 @@
 MOUNT_DIR=/mnt
-BASE_DIR=/home/lei/scripts-collection
 DOCKER_DIR=/home/docker
-BACK_DIR="$MOUNT_DIR"/BACK
+BACK_DIR="$MOUNT_DIR"/BACKDISK
+NAS_DIR="$MOUNT_DIR"/NASDISK
+BASE_DIR="$NAS_DIR"/software/scripts-collection
 LOG_DIR="$BACK_DIR"
 
 mkdir -p $DOCKER_DIR $BACK_DIR $LOG_DIR
