@@ -1,9 +1,10 @@
 MOUNT_DIR=/mnt
+BACK_DIR=/home/mnt/back
+NAS_DIR=/home/mnt/nas
+BASE_DIR=/home/mnt/nas/software/scripts-collection
+
 DOCKER_DIR=/home/docker
-BACK_DIR="$MOUNT_DIR"/BACKDISK
-NAS_DIR="$MOUNT_DIR"/NASDISK
-BASE_DIR="$NAS_DIR"/software/scripts-collection
-LOG_DIR="$BACK_DIR"
+LOG_DIR=/var/log/back
 
 mkdir -p $DOCKER_DIR $BACK_DIR $LOG_DIR
 
