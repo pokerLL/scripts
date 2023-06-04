@@ -9,7 +9,7 @@ cd $DOCKER_DIR
 
 if [ -d $DOCKER_DIR/_init ]; then
     # 执行_init目录下的所有.sh文件
-  find "$DOCKER_DIR/_init" -type f -name "*.sh" -exec sudo bash {} \;
+  find "$DOCKER_DIR/_init" -name "*.sh" -exec sudo bash {} \;
 fi
 
 for dir in */; do

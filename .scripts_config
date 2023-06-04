@@ -1,3 +1,5 @@
+#!/bin/bash
+
 MOUNT_DIR=/mnt
 BACK_DIR=/home/mnt/back
 NAS_DIR=/home/mnt/nas
@@ -7,12 +9,14 @@ DOCKER_DIR=/home/docker
 OTHERAPP_DIR=/home/otherapp
 LOG_DIR=/var/log/back
 
-mkdir -p $DOCKER_DIR $BACK_DIR $LOG_DIR
-
-if [ ! -d $BASE_DIR ]; then
-     echo "Error: $BASE_DIR is not a valid directory"
-fi
+mkdir -p $MOUNT_DIR $BACK_DIR $NAS_DIR $DOCKER_DIR $OTHERAPP_DIR $LOG_DIR
 
 now() {
     date +"%Y-%m-%d %H:%M:%S"
 }
+
+BASE_LOG_FORMAT='[$(now) $(log_level) $(basename "$0") $(whoami)]'
+
+if [ ! -d $BASE_DIR ]; then
+     echo "[ERROR] $(now) $BASE_DIR is not a valid directory"
+fi
