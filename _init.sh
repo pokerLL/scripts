@@ -26,7 +26,7 @@ directories=(
 # 遍历目录进行操作
 for directory in "${directories[@]}"; do
   if [ -d "$directory/_init" ]; then
-    find "$directory/_init" -type f -name "*.sh" -exec bash {} \;
+    find "$directory/_init" -name "*.sh" -exec bash {} \;
   fi
 
   if [ -f "$directory/_init.sh" ]; then
@@ -44,4 +44,5 @@ alias jncu="journalctl -fu "
 if [ "$open_restart" = true ]; then
   echo "open_restart is on "
   bash "$BASE_DIR"/back_docker_service_data.sh
+  systemctl restart frpc
 fi
