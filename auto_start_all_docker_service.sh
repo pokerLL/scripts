@@ -31,18 +31,7 @@ for dir in */; do
   fi
   
   cd "$dir"
-
-  # # 获取docker-compose.yml文件中定义的所有服务名称
-  # services=$(docker-compose config --services)
-
-  # for service in $services; do
-  #   if docker-compose ps | grep "$service" | grep -q "Up"; then
-  #     echo "Service $service is already running, skipping..."
-  #   else
-  #     docker-compose up -d "$service"
-  #   fi
-  # done
-
+  
   docker-compose down && docker-compose up -d
 
   cd ..

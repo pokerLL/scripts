@@ -15,11 +15,11 @@ for device in $devices; do
         continue
     fi
 
-    if [ -n "$current_mount_point" ]; then
+    if [ -n "$current_mount_point" ] && [ "$current_mount_point" != "/dev" ]; then
         sudo umount "$device_path"
-        echo "[$(now)] Unmounted device $device_path from $current_mount_point"
     fi
 
+    # sudo rm -rf "$target_mount_point"
     sudo mkdir -p "$target_mount_point"
 
     sudo mount "$device_path" "$target_mount_point" -O rw,user
