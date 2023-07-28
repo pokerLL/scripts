@@ -17,8 +17,6 @@ if command -v docker-compose &>/dev/null; then
     fi 
 fi
 
-exit 1
-
 sudo rm -f /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo curl -L $download_url -o /usr/local/bin/docker-compose
 

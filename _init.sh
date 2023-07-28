@@ -18,8 +18,8 @@ for directory in "${directories[@]}"; do
   fi
 done
 
-source /scripts-collection/proxy_tool.sh
-
+alias ll='ls -alh'
+alias w='watch'
 
 alias d='docker'
 alias dc='docker-compose'
