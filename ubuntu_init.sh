@@ -24,8 +24,12 @@ install_packages() {
 # 安装conda
 install_miniconda(){
    set -e
-   # wget "https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh" -O ~/miniconda.sh
-   # wget "https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-$(uname -m).sh" -O ~/miniconda.sh
+   if [ -f ./miniconda.sh ];then
+       cp ./miniconda.sh ~
+   else
+       wget "https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-$(uname -m).sh" -O ~/miniconda.sh
+   fi
+   exit
    bash ~/miniconda.sh -b -p $HOME/miniconda
    ~/miniconda/bin/conda init
    echo 'Successfully installed miniconda...'
