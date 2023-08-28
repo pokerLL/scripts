@@ -1,7 +1,7 @@
 MOUNT_DIR=/mnt
 BACK_DIR=/home/mnt/back
 NAS_DIR=/home/mnt/nas
-BASE_DIR=/home/mnt/nas/software/scripts-collection
+BASE_DIR=/home/mnt/nas/warehouse/scripts-collection
 
 DOCKER_DIR=/home/docker
 LOG_DIR=/var/log/back
