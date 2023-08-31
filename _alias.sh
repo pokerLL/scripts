@@ -4,6 +4,7 @@ alias w='watch'
 alias d='docker'
 alias dc='docker-compose'
 alias dcr='docker-compose down && docker-compose up -d'
+alias dcp='docker-compose pull'
 
 alias tree='tree -a'
 

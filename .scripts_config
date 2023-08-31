@@ -9,8 +9,6 @@ DOCKER_DIR=/home/docker
 OTHERAPP_DIR=/home/otherapp
 LOG_DIR=/var/log/back
 
-mkdir -p $MOUNT_DIR $BACK_DIR $NAS_DIR $DOCKER_DIR $OTHERAPP_DIR $LOG_DIR
-
 now() {
     date +"%Y-%m-%d %H:%M:%S"
 }
