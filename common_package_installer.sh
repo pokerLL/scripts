@@ -14,15 +14,15 @@ packages=(
 
 # 安装常用软件
 install_packages() {
-  sudo apt update
+  sudo $1 update
   for package in "${packages[@]}"; do
     echo "正在安装软件包：$package"
-    sudo apt install -y "$package"
+    sudo $1 install -y "$package"
   done
 }
 
-if [ $# -eq 0 || $1 == "apt" ]; then
-   install_package apt
+if [ $# -eq 0 ] || [ $1 == "apt" ]; then
+   install_packages apt
 elif [ $1 == "yum" ];then
-   install_package yum
+   install_packages yum
 fi

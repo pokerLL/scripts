@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 set -e
-if [ -f ./miniconda.sh ];then
+if [ -f ./miniconda.sh ]; then
    cp ./miniconda.sh ~
 else
    wget "https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-$(uname -m).sh" -O ~/miniconda.sh

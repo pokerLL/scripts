@@ -38,7 +38,7 @@ docker stop "$container_name" && docker rm -f "$container_name"
 echo "docker run -d --restart=always --name \"$container_name\" -v \"$mount_dir\":\"$mount_dir\" -p \"$host_port\":6806 -u 1000:1000 b3log/siyuan -workspace \"$mount_dir\""
 # docker run -d --restart=always --name "$container_name" -v "$mount_dir":"$mount_dir" -p "$host_port":6806 -u 1000:1000 b3log/siyuan -workspace "$mount_dir"
 
-cp $BASE_DIR/docker-compose.yml.siyuan.example $mount_dir/docker-compose.yml || exit 1
+cp $BASE_DIR/docker-compose.yml.siyuan.tmpl $mount_dir/docker-compose.yml || exit 1
 
 sed -i "s/VAR_PORT/${host_port}/g" $mount_dir/docker-compose.yml
 sed -i "s/VAR_CNAME/${container_name}/g" $mount_dir/docker-compose.yml
