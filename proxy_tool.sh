@@ -1,8 +1,14 @@
+export PROXY_HOST=192.168.25.20
+export PROXY_SOCKET_PORT=20170
+export PROXY_HTTP_PORT=20171
+export PROXY_USER=admin
+export PROXY_PSD=zxc123
+
 function proxy_on(){
-    export ALL_PROXY=socks5://127.0.0.1:20170
-    export http_proxy=http://127.0.0.1:20171
-    export https_proxy=https://127.0.0.1:20171
-    echo -e "Enabled proxy on 20170(socks5) and 20171(http)..."
+    export ALL_PROXY=socks5://$PROXY_HOST:$PROXY_SOCKET_PORT
+    export http_proxy=http://$PROXY_USER:$PROXY_PSD@$PROXY_HOST:$PROXY_HTTP_PORT
+    export https_proxy=http://$PROXY_USER:$PROXY_PSD@$PROXY_HOST:$PROXY_HTTP_PORT
+    echo -e "Enabled proxy on $PROXY_SOCKET_PORT(socks5) and $PROXY_HTTP_PORT(http)..."
 }
 
 function proxy_off(){
